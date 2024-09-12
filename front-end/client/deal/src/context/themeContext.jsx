@@ -15,7 +15,7 @@ export const themeContext = createContext({
   },
 });
 
-const ThemeProvider = ({ children }) => {
+export default function ThemeProvider({ children }) {
   const [currentTheme, setCurrentTheme] = useState("light");
   return (
     <themeContext.Provider
@@ -37,6 +37,4 @@ const ThemeProvider = ({ children }) => {
       {children}
     </themeContext.Provider>
   );
-};
-
-export default ThemeProvider;
+}
