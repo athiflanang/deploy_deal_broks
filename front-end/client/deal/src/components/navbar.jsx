@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { themeContext } from "../context/ThemeContext";
+import { themeContext } from "../context/themeContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -53,10 +53,7 @@ const Navbar = () => {
           </svg>
         </label>
         <div className="flex-none">
-          <button
-            onClick={handleLogout}
-            className="btn "
-          >
+          <button onClick={handleLogout} className="btn ">
             Logout
           </button>
         </div>

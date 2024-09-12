@@ -6,7 +6,7 @@ import { useContext } from "react";
 import Lottie from "lottie-react";
 import emptyData from "../assets/emptyDataAnimation.json";
 // import { themeContext } from "../context/themeContext";
-import { themeContext } from "../context/ThemeContext";
+import { themeContext } from "../context/themeContext";
 
 const HomePage = ({ socket }) => {
   const [name, setName] = useState();

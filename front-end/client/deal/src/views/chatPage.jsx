@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
-import { themeContext } from "../context/ThemeContext";
+import { themeContext } from "../context/themeContext";
 import axios from "axios";
 
 const ChatPage = ({ socket }) => {

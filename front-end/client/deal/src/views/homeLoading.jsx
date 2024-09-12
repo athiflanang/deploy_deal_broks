@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import backGroundIMG from "../assets/Background.json";
 import Animation1 from "../assets/Animation-1.json";
 import { useContext } from "react";
-import { themeContext } from "../context/ThemeContext";
+import { themeContext } from "../context/themeContext";
 import { useNavigate } from "react-router-dom";
 
 const HomeLoading = () => {
