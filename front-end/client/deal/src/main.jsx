@@ -3,10 +3,13 @@ import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import router from "./routers/index";
 import "toastify-js/src/toastify.css";
-import ThemeProvider from "./context/ThemeContext";
+import { StrictMode } from "react";
+import App from "./App.jsx";
+// import ThemeProvider from "./context/ThemeContext";
+// import { themeContext } from "./context/themeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <ThemeProvider>
-    <RouterProvider router={router} />,
-  </ThemeProvider>
+  <StrictMode>
+    <App />
+  </StrictMode>
 );
