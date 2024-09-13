@@ -181,7 +181,7 @@ const HomePage = ({ socket }) => {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 mx-28">
+              <div className="grid grid-cols-1 md:grid-cols-3 md:mx-28">
                 {data &&
                   data.map((el, i) => (
                     <div
