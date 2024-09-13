@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import animationData from "../assets/Animation - 1725973319141.json";
 import axios from "axios";
 import Toastify from "toastify-js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState();
@@ -110,9 +110,11 @@ function Login() {
         </form>
         <p className="text-center text-white text-sm mt-4">
           Don't have an account?{" "}
-          <a href="#" className="underline hover:text-purple-300">
-            Register
-          </a>
+          <Link to="/register">
+            <a href="#" className="underline hover:text-purple-300">
+              Register
+            </a>
+          </Link>
         </p>
       </div>
     </div>

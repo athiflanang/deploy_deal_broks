@@ -1,15 +1,27 @@
 import axios from "axios";
+import Lottie from "lottie-react";
+import animationData from "../assets/Animation - 1725973319141.json";
+import Toastify from "toastify-js";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const RegisterPage = () => {
-  const register = async () => {
+export default function RegisterPage() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function register(e) {
+    e.preventDefault();
     try {
-      const data = await axios.post(
-        "https://project.athiflanang.site/register"
+      const dataUser = { username, password, role: "User" };
+      const { data } = await axios.post(
+        "https://project.athiflanang.site/register",
+        dataUser
       );
       console.log(data);
 
       Toastify({
-        text: "Success Add Data",
+        text: "Success Add New User",
         duration: 3000,
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
@@ -22,6 +34,7 @@ const RegisterPage = () => {
         },
         onClick: function () {}, // Callback after click
       }).showToast();
+      navigate("/login");
     } catch (err) {
       Toastify({
         text: err.response.data.message,
@@ -38,12 +51,8 @@ const RegisterPage = () => {
         onClick: function () {}, // Callback after click
       }).showToast();
     }
-  };
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    register();
-  };
   return (
     <div className="min-h-screen flex justify-center items-center relative bg-gradient-to-b from-purple-800 to-purple-900">
       {/* Background Image */}
@@ -58,10 +67,10 @@ const RegisterPage = () => {
         <h2 className="text-center text-2xl font-bold text-white mb-4">
           Login
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={register}>
           <div className="mb-4 relative">
             <input
-              //   onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full p-2 rounded-lg bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-purple-400"
               type="text"
               id="username"
@@ -73,7 +82,7 @@ const RegisterPage = () => {
           </div>
           <div className="mb-4 relative">
             <input
-              //   onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full p-2 rounded-lg bg-white bg-opacity-20 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-purple-400"
               type="password"
               id="password"
@@ -87,18 +96,12 @@ const RegisterPage = () => {
             type="submit"
             className="w-full bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg font-semibold transition"
           >
-            Login
+            Register
           </button>
         </form>
-        <p className="text-center text-white text-sm mt-4">
-          Don't have an account?{" "}
-          <a href="#" className="underline hover:text-purple-300">
-            Register
-          </a>
-        </p>
       </div>
     </div>
   );
-};
+}
 
-export default RegisterPage;
+// export default RegisterPage;
